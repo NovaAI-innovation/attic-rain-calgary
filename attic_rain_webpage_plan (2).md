@@ -26,17 +26,17 @@ Every word, visual, and CTA on the page is written for someone staring at a wate
 - **HTML5** — single `index.html`
 - **CSS3** — single `styles.css`, no framework, no Tailwind, no preprocessor. ~450–700 lines total.
 - **Light JS** — one inline `<script>` block (~120–180 lines) handling:
-  - Contact-form submission via `fetch` to the serverless function, inline validation, success/error states, copy-email fallback
+  - Contact-form submission via `fetch` to Web3Forms, inline validation, success/error states, copy-email fallback
   - Smooth scroll for anchor links
   - Pitch-deck keyboard nav (left/right arrows, slide dots)
   - Mobile menu toggle
   - Lazy-load via `loading="lazy"` + `IntersectionObserver` for the pitch deck
 
-**Backend (NEW, minimal)**
-- **One serverless function** — e.g. `api/contact.ts`. Receives the form `POST`, validates server-side, and sends the lead via a **transactional email API** (default **Resend**; Postmark / Brevo as drop-in alternatives) to `bmad.developments@gmail.com`, with the submitter set as `reply-to`.
-- **State & config:** one environment variable (`EMAIL_API_KEY`); no database; no stored leads. Scales to zero.
-- **Language:** default **Node/TypeScript** (native to Netlify / Vercel / Cloudflare Pages+Functions, which bundle the function on deploy — so still no local build step).
-- **Stack-alignment note:** the repo's `AGENTS.md` states a C#/.NET identity. If you prefer stack alignment, the same function ports cleanly to **C# on Azure Functions** (isolated worker, one HTTP trigger). This is surfaced only; Node/TS is the default pick because the chosen static hosts run it natively with zero extra config.
+**Backend (minimal — no serverless function)**
+- **Form delivery via [Web3Forms](https://web3forms.com).** The form `POST`s JSON directly to `https://api.web3forms.com/submit` from the browser, using an access key held in the gitignored `config.js` (see `config.example.js` for the template). Web3Forms routes the submission to the owner's inbox and sets the submitter as `reply-to`. No backend code, no serverless function, no `EMAIL_API_KEY` env var.
+- **Spam handling:** a hidden honeypot field (`company`) plus Web3Forms' own `botcheck` field. If the honeypot is filled, the form quietly "succeeds" without submitting.
+- **State & config:** one access key in `config.js` (local only); no database; no stored leads. Scales to zero.
+- **History note:** an earlier revision shipped a Node/TypeScript serverless handler (`api/contact.ts`, Resend/Postmark/Brevo) alongside the Web3Forms path. It was removed as dead code — the form never called it. If you later want to hide the inbox address or add server-side validation, reintroducing a function is straightforward, but it is not needed for the current Web3Forms flow.
 
 **Asset tooling (NEW)**
 - **A1 hero** is photo-real and produced with the `imagegen` skill, exported as **WebP (~150 KB) + PNG fallback**, served via a `<picture>` element.
@@ -218,7 +218,7 @@ Note: A4–A6 (icons) and A8-4 (consolidated 3-icon graphic) are visually relate
 
 ## 8. Contact / Email Interface (S7) — functional, no persistent backend
 
-The form **posts to the serverless function**; the function emails the lead. No data is stored. Two user paths plus a manual fallback:
+The form **posts directly to Web3Forms**; Web3Forms emails the lead to the owner's inbox. No data is stored. Two user paths plus a manual fallback:
 
 **Form fields**
 - `name` — text, required
@@ -228,8 +228,8 @@ The form **posts to the serverless function**; the function emails the lead. No 
 
 **Primary path — submit**
 1. JS intercepts submit, runs inline validation (required + email pattern), focuses the first invalid field, shows messages under fields (no `alert`).
-2. On valid, JS `POST`s JSON to `/api/contact`. Submit button enters disabled/"Sending…" state. An `aria-live` status region narrates progress.
-3. Function validates server-side → calls **Resend** (`EMAIL_API_KEY`) → sends to `bmad.developments@gmail.com` with submitter as `reply-to` → returns `{ok:true}`.
+2. On valid, JS `POST`s JSON to `https://api.web3forms.com/submit` with the access key from `config.js`. Submit button enters disabled/"Sending…" state. An `aria-live` status region narrates progress.
+3. Web3Forms delivers the submission to the owner's inbox with the submitter set as `reply-to` → returns `{success:true}`.
 4. On `{ok:true}`: show success state — *"Message sent — we'll reply within one business day."* Form resets.
 5. On `{ok:false}` or network error: show inline error — *"Something went wrong. Please try again, or copy our email below."*
 
@@ -295,7 +295,7 @@ Export both **WebP** (~150 KB) and **PNG** fallback, then serve via `<picture>` 
 1. **Regenerate all 13 visuals** to the modern spec into `assets/` (flat SVGs done; photo-real A1 hero pending `image_gen` — see §10).
 2. Build `index.html` skeleton with the §3 sections and the §3a draft copy.
 3. Build `styles.css` per the §7 design system.
-4. **Build the serverless function** `api/contact.ts` (validate → Resend → reply-to) and set the `EMAIL_API_KEY` env var.
+4. **Configure Web3Forms:** copy `config.example.js` → `config.js` and paste a Web3Forms access key (free at https://web3forms.com). No serverless function to build — the form posts to Web3Forms directly.
 5. Wire the inline JS: form `fetch` + validation + success/error + copy-email fallback; pitch-deck nav; mobile menu; smooth scroll; lazy-load.
 6. Test locally — verify all 13 assets render exactly once, the form end-to-end delivers an email, and focus/contrast/a11y checks pass.
 7. Deploy (static folder + function on Netlify / Vercel / Cloudflare).
@@ -313,7 +313,7 @@ Export both **WebP** (~150 KB) and **PNG** fallback, then serve via `<picture>` 
 - Authentication
 - Any framework, build tool, or package manager for the frontend
 
-> Note: v02 listed "Backend, database, API" here. The **minimal** contact backend (one serverless function + transactional email API) is now **in scope**; a persistent database remains out of scope.
+> Note: v02 listed "Backend, database, API" here. The **minimal** contact path is handled client-side via **Web3Forms** (form posts directly, no serverless function needed); a persistent database remains out of scope. An earlier revision included a serverless `api/contact.ts` handler — removed as dead code since the form never called it.
 
 ---
 
@@ -325,8 +325,8 @@ Export both **WebP** (~150 KB) and **PNG** fallback, then serve via `<picture>` 
 4. Alberta roofing license number text for footer
 5. Two or three real customer quote lines (optional in S5)
 6. Pitch-deck statistical claims (PD1 call volume, PD2 temperature data) — sourced from public reports or owner data?
-7. **Transactional-email provider confirm:** Resend (default) vs Postmark vs Brevo, and the `EMAIL_API_KEY`.
-8. **Host confirm:** Netlify / Vercel / Cloudflare Pages+Functions (drives function runtime).
+7. **Web3Forms access key:** generate one free at https://web3forms.com and paste into the gitignored `config.js` (see `config.example.js`). No transactional-email provider or `EMAIL_API_KEY` needed unless reintroducing a serverless function.
+8. **Host confirm:** any static host (Netlify / Vercel / Cloudflare Pages / GitHub Pages) — no function runtime required since the form posts to Web3Forms from the browser.
 9. **Function language confirm:** Node/TypeScript (default, native to the hosts) vs C# on Azure Functions (for .NET stack alignment).
 
 ---
