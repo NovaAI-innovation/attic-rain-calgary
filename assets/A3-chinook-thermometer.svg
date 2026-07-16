@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-labelledby="a3t a3d">
+  <title id="a3t">Calgary Chinook temperature swing</title>
+  <desc id="a3d">Thermometer graphic showing a Calgary Chinook temperature swing from minus 25 degrees Celsius to plus 5 degrees, with an arrow marking the rapid rise that turns attic frost into meltwater.</desc>
+
+  <defs>
+    <style>
+<![CDATA[
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+      :root { --ink:#0B1220; --panel:#141E2E; --text:#F8FAFC; --muted:#94A3B8; --ember:#FF6A1A; --crisp:#38BDF8; }
+      .a3-bg       { fill: url(#bg3); }
+      .a3-tube     { fill: var(--panel); stroke: #2A3B55; stroke-width: 3; }
+      .a3-bulb     { fill: var(--panel); stroke: #2A3B55; stroke-width: 3; }
+      .a3-mercury  { fill: url(#mercury); }
+      .a3-bulb-fill{ fill: var(--ember); }
+      .a3-merg     { fill: var(--ember); }
+      .a3-glass-hi { fill: #FFFFFF; opacity: .12; }
+      .a3-swing    { fill: none; stroke: var(--ember); stroke-width: 5; stroke-linecap: round; }
+      .a3-pill-cold{ fill: var(--panel); stroke: var(--crisp); stroke-width: 2; }
+      .a3-pill-warm{ fill: var(--panel); stroke: var(--ember); stroke-width: 2; }
+      .a3-takeaway { fill: var(--panel); stroke: var(--ember); stroke-width: 2; }
+      .a3-rise { transform-box: fill-box; transform-origin: bottom; animation: a3-mercury 7s ease-in-out infinite; }
+      .a3-pulse{ transform-box: fill-box; transform-origin: center; animation: a3-beat 3.2s ease-in-out infinite; }
+      @keyframes a3-mercury { 0%,100%{ transform: scaleY(0.62) } 50%{ transform: scaleY(1) } }
+      @keyframes a3-beat    { 0%,100%{ transform: scale(1); opacity:.85 } 50%{ transform: scale(1.14); opacity:1 } }
+      @media (prefers-reduced-motion: reduce){ .a3-rise,.a3-pulse{ animation:none } }
+]]>
+    </style>
+
+    <linearGradient id="bg3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0B1220"/><stop offset="1" stop-color="#141E2E"/></linearGradient>
+    <linearGradient id="mercury" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0"    stop-color="#7AC8FF"/>
+      <stop offset="0.4"  stop-color="#38BDF8"/>
+      <stop offset="0.75" stop-color="#FF6A1A"/>
+      <stop offset="1"    stop-color="#FFB070"/>
+    </linearGradient>
+
+    <filter id="a3-glass" x="-20%" y="-10%" width="140%" height="120%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5"/>
+      <feOffset dy="6" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.4"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="a3-glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="10" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <marker id="arr3" markerWidth="12" markerHeight="12" refX="8" refY="4" orient="auto"><path d="M0,0 L9,4 L0,8 Z" fill="#FF6A1A"/></marker>
+  </defs>
+
+  <rect class="a3-bg" width="800" height="500"/>
+
+  <g filter="url(#a3-glass)">
+    <rect class="a3-tube" x="370" y="70" width="60" height="330" rx="30"/>
+    <circle class="a3-bulb" cx="400" cy="420" r="46"/>
+    <g class="a3-rise" style="transform-origin: 400px 410px">
+      <rect class="a3-mercury" x="386" y="210" width="28" height="200" rx="14"/>
+    </g>
+    <circle class="a3-bulb-fill a3-pulse" cx="400" cy="420" r="34" filter="url(#a3-glow)"/>
+    <rect class="a3-merg" x="386" y="406" width="28" height="20"/>
+    <rect class="a3-glass-hi" x="382" y="84" width="8" height="300" rx="4"/>
+  </g>
+
+  <g font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="700" fill="#F8FAFC">
+    <g stroke="#2A3B55" stroke-width="2">
+      <line x1="440" y1="120" x2="460" y2="120"/><line x1="440" y1="190" x2="455" y2="190"/>
+      <line x1="440" y1="260" x2="460" y2="260"/><line x1="440" y1="330" x2="455" y2="330"/>
+      <line x1="440" y1="400" x2="460" y2="400"/>
+    </g>
+    <text x="470" y="125">+15°</text><text x="470" y="265">0°</text><text x="470" y="405">−25°</text>
+  </g>
+
+  <g>
+    <path class="a3-swing" d="M250 400 C 230 320, 230 260, 250 215" marker-end="url(#arr3)"/>
+    <g>
+      <rect class="a3-pill-cold" x="70" y="372" width="150" height="56" rx="12"/>
+      <text x="145" y="396" text-anchor="middle" fill="#38BDF8" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="800">−25°C</text>
+      <text x="145" y="416" text-anchor="middle" fill="#94A3B8" font-family="Inter, system-ui, sans-serif" font-size="12">deep freeze</text>
+    </g>
+    <g>
+      <rect class="a3-pill-warm" x="80" y="185" width="150" height="56" rx="12"/>
+      <text x="155" y="209" text-anchor="middle" fill="#FF6A1A" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="800">+5°C</text>
+      <text x="155" y="229" text-anchor="middle" fill="#94A3B8" font-family="Inter, system-ui, sans-serif" font-size="12">Chinook thaw</text>
+    </g>
+  </g>
+
+  <g>
+    <rect class="a3-takeaway" x="560" y="120" width="210" height="64" rx="12"/>
+    <text x="665" y="148" text-anchor="middle" fill="#FF6A1A" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="800">A 30°C swing</text>
+    <text x="665" y="168" text-anchor="middle" fill="#94A3B8" font-family="Inter, system-ui, sans-serif" font-size="12">in a single day</text>
+  </g>
+  <text x="400" y="485" text-anchor="middle" fill="#94A3B8" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="600">Calgary Chinook: frost turns to "rain" inside the attic</text>
+</svg>

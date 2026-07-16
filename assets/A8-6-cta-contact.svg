@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-labelledby="p6t p6d">
+  <title id="p6t">Your free assessment — what happens next</title>
+  <desc id="p6d">A friendly card titled Your free assessment, listing the four next steps after a homeowner calls: a short phone chat, an attic visit, a written quote, and the work itself.</desc>
+
+  <defs>
+    <style>
+<![CDATA[
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+      :root { --ink:#0B1220; --panel:#141E2E; --text:#F8FAFC; --muted:#94A3B8; --ember:#FF6A1A; --crisp:#38BDF8; }
+      .x-bg    { fill: url(#xbg); }
+      .x-eyebrow{ fill: var(--ember); font-size:14px; font-weight:900; letter-spacing:2px; }
+      .x-h     { fill: var(--text); font-size:34px; font-weight:900; }
+      .x-sub   { fill: var(--muted); font-size:15px; }
+      .x-phone { fill: var(--panel); stroke: var(--crisp); stroke-width:1.5; }
+      .x-phone-t{ fill: var(--crisp); font-size:15px; font-weight:800; }
+      .x-cta   { fill: var(--ember); }
+      .x-cta-t { fill:#0B1220; font-size:15px; font-weight:900; }
+      .x-card  { fill: var(--panel); stroke: #2A3B55; stroke-width:2; }
+      .x-card-h{ fill: var(--text); font-size:20px; font-weight:800; }
+      .x-step  { fill: #1E2A40; stroke: var(--ember); stroke-width:2; }
+      .x-step-n{ fill: var(--ember); font-weight:900; }
+      .x-step-h{ fill: var(--text); font-weight:800; }
+      .x-step-d{ fill: var(--muted); }
+      .x-promise{ fill: var(--ink); stroke: var(--crisp); stroke-width:1.5; }
+      .x-cta-pulse { transform-box: fill-box; transform-origin: center; animation: x-pulse 3s ease-in-out infinite; }
+      @keyframes x-pulse { 0%,100%{ transform: scale(1) } 50%{ transform: scale(1.03) } }
+      @media (prefers-reduced-motion: reduce){ .x-cta-pulse{ animation:none } }
+]]>
+    </style>
+    <linearGradient id="xbg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0B1220"/><stop offset="1" stop-color="#141E2E"/></linearGradient>
+    <filter id="x-card-soft" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#000000" flood-opacity="0.55"/>
+    </filter>
+    <filter id="x-cta-glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="7" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect class="x-bg" width="800" height="500"/>
+
+  <g font-family="Inter, system-ui, sans-serif">
+    <text class="x-eyebrow" x="60" y="110">NEXT STEPS</text>
+    <text class="x-h" x="60" y="160">Your free</text>
+    <text class="x-h" x="60" y="198">assessment.</text>
+    <text class="x-sub" x="60" y="232">No pressure. No commitment. Just a clear answer.</text>
+
+    <g><rect class="x-phone" x="60" y="258" width="220" height="44" rx="22"/><text class="x-phone-t" x="78" y="286">Or call [PHONE]</text></g>
+    <g class="x-cta-pulse" filter="url(#x-cta-glow)">
+      <rect class="x-cta" x="60" y="312" width="260" height="44" rx="22"/>
+      <text class="x-cta-t" x="78" y="340">Send the form on the right →</text>
+    </g>
+  </g>
+
+  <g font-family="Inter, system-ui, sans-serif">
+    <rect class="x-card" x="380" y="60" width="370" height="400" rx="18" filter="url(#x-card-soft)"/>
+    <text class="x-card-h" x="404" y="100">What happens after you contact us</text>
+
+    <g font-size="13" fill="#F8FAFC">
+      <circle class="x-step" cx="416" cy="146" r="14"/><text class="x-step-n" x="416" y="151" text-anchor="middle">1</text>
+      <text class="x-step-h" x="442" y="143">A short phone chat</text><text class="x-step-d" x="442" y="160">~10 minutes. We listen, ask a few questions.</text>
+
+      <circle class="x-step" cx="416" cy="206" r="14"/><text class="x-step-n" x="416" y="211" text-anchor="middle">2</text>
+      <text class="x-step-h" x="442" y="203">An attic visit</text><text class="x-step-d" x="442" y="220">Free, no obligation. We check vents, adapter, insulation.</text>
+
+      <circle class="x-step" cx="416" cy="266" r="14"/><text class="x-step-n" x="416" y="271" text-anchor="middle">3</text>
+      <text class="x-step-h" x="442" y="263">A written quote</text><text class="x-step-d" x="442" y="280">Plain English. Itemized. No hidden fees.</text>
+
+      <circle class="x-step" cx="416" cy="326" r="14"/><text class="x-step-n" x="416" y="331" text-anchor="middle">4</text>
+      <text class="x-step-h" x="442" y="323">The work</text><text class="x-step-d" x="442" y="340">Scheduled when it works for you. 5-year warranty.</text>
+    </g>
+
+    <rect class="x-promise" x="404" y="380" width="320" height="56" rx="10"/>
+    <text x="564" y="406" text-anchor="middle" fill="#F8FAFC" font-size="14" font-weight="800">No pushy follow-ups. Promise.</text>
+    <text x="564" y="424" text-anchor="middle" fill="#38BDF8" font-size="12" font-weight="500">You hear back within one business day.</text>
+  </g>
+</svg>

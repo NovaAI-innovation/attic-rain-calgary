@@ -1,0 +1,13 @@
+# Normalize line endings: check out as-is, commit with LF in the repo.
+# Stops the "LF will be replaced by CRLF" warnings on Windows.
+* text=auto eol=lf
+
+# Binary assets — never normalize
+*.jpg  binary
+*.jpeg binary
+*.png  binary
+*.gif  binary
+*.webp binary
+*.ico  binary
+*.svg  text eol=lf
+*.pdf  binary

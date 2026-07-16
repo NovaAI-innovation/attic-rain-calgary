@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-labelledby="p4t p4d">
+  <title id="p4t">Our solution in three steps</title>
+  <desc id="p4d">Diagram combining the three prevention steps: balanced ventilation, a sealed bath-fan adapter, and correct insulation.</desc>
+
+  <defs>
+    <style>
+<![CDATA[
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+      :root { --ink:#0B1220; --panel:#141E2E; --text:#F8FAFC; --muted:#94A3B8; --ember:#FF6A1A; --crisp:#38BDF8; }
+      .s-bg    { fill: url(#sbg); }
+      .s-title { fill: var(--text); font-size:28px; font-weight:900; }
+      .s-sub   { fill: var(--muted); font-size:15px; }
+      .s-card  { fill: var(--panel); stroke: #2A3B55; stroke-width:2; }
+      .s-step  { fill: var(--ember); font-size:14px; font-weight:900; }
+      .s-name  { fill: var(--text); font-size:20px; font-weight:800; }
+      .s-desc  { fill: var(--muted); font-size:13px; }
+      .s-conn  { stroke: var(--ember); stroke-width:3; stroke-dasharray:2 6; opacity:.8; }
+      .s-flow  { animation: s-flow 1.8s linear infinite; }
+      @keyframes s-flow { to { stroke-dashoffset: -16; } }
+      @media (prefers-reduced-motion: reduce){ .s-flow{ animation:none } }
+]]>
+    </style>
+    <linearGradient id="sbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0B1220"/><stop offset="1" stop-color="#141E2E"/></linearGradient>
+    <filter id="s-card-soft" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#000000" flood-opacity="0.55"/>
+    </filter>
+    <radialGradient id="disc-cyan" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#0E3A57"/><stop offset="1" stop-color="#0B1220"/></radialGradient>
+    <radialGradient id="disc-ember" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#3A1B0E"/><stop offset="1" stop-color="#0B1220"/></radialGradient>
+    <radialGradient id="disc-blue"  cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#163050"/><stop offset="1" stop-color="#0B1220"/></radialGradient>
+  </defs>
+
+  <rect class="s-bg" width="800" height="500"/>
+  <text class="s-title" x="60" y="64" font-family="Inter, system-ui, sans-serif">Our solution</text>
+  <text class="s-sub"   x="60" y="92" font-family="Inter, system-ui, sans-serif">Three steps together stop frost before it forms</text>
+
+  <g font-family="Inter, system-ui, sans-serif">
+    <g>
+      <rect class="s-card" x="60" y="140" width="210" height="300" rx="16" filter="url(#s-card-soft)"/>
+      <circle cx="165" cy="210" r="34" fill="url(#disc-cyan)"/>
+      <g stroke="#F8FAFC" stroke-width="3" fill="none" stroke-linecap="round"><path d="M143 224 L165 200 L187 224"/><path d="M150 224 h30 l-4 14 h-22 z" fill="#141E2E" stroke-linejoin="round"/></g>
+      <text class="s-step" x="165" y="282" text-anchor="middle">STEP 1</text>
+      <text class="s-name" x="165" y="312" text-anchor="middle">Ventilation</text>
+      <text class="s-desc" x="165" y="346" text-anchor="middle">Balanced intake</text><text class="s-desc" x="165" y="366" text-anchor="middle">and exhaust keeps</text><text class="s-desc" x="165" y="386" text-anchor="middle">the attic cold and dry.</text>
+    </g>
+    <g>
+      <rect class="s-card" x="295" y="140" width="210" height="300" rx="16" filter="url(#s-card-soft)"/>
+      <circle cx="400" cy="210" r="34" fill="url(#disc-ember)"/>
+      <g stroke="#F8FAFC" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M382 222 h36 l-5 16 h-26 z" fill="#141E2E"/><rect x="390" y="236" width="20" height="10" rx="3" fill="#FF6A1A"/><path d="M400 246 C 400 256, 384 258, 378 254" fill="none" stroke="#38BDF8" stroke-width="3"/></g>
+      <text class="s-step" x="400" y="282" text-anchor="middle">STEP 2</text>
+      <text class="s-name" x="400" y="312" text-anchor="middle">Adapter</text>
+      <text class="s-desc" x="400" y="346" text-anchor="middle">Route bath-fan</text><text class="s-desc" x="400" y="366" text-anchor="middle">moisture fully</text><text class="s-desc" x="400" y="386" text-anchor="middle">outside, sealed.</text>
+    </g>
+    <g>
+      <rect class="s-card" x="530" y="140" width="210" height="300" rx="16" filter="url(#s-card-soft)"/>
+      <circle cx="635" cy="210" r="34" fill="url(#disc-blue)"/>
+      <g stroke="#F8FAFC" stroke-width="3" fill="#2E6FA0" stroke-linejoin="round"><rect x="613" y="196" width="44" height="10" rx="4"/><rect x="617" y="210" width="36" height="10" rx="4"/><rect x="621" y="224" width="28" height="10" rx="4"/></g>
+      <text class="s-step" x="635" y="282" text-anchor="middle">STEP 3</text>
+      <text class="s-name" x="635" y="312" text-anchor="middle">Insulation</text>
+      <text class="s-desc" x="635" y="346" text-anchor="middle">Correct depth and</text><text class="s-desc" x="635" y="366" text-anchor="middle">R-value keep house</text><text class="s-desc" x="635" y="386" text-anchor="middle">heat out of the attic.</text>
+    </g>
+  </g>
+
+  <g class="s-conn s-flow"><line x1="276" y1="290" x2="289" y2="290"/><line x1="511" y1="290" x2="524" y2="290"/></g>
+</svg>

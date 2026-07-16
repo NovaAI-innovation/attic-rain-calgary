@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-labelledby="p2t p2d">
+  <title id="p2t">How a Chinook turns frost into attic rain</title>
+  <desc id="p2d">Friendly graphic of a five-day Chinook temperature cycle with the cold-then-warm swing that drives attic-rain damage.</desc>
+
+  <defs>
+    <style>
+<![CDATA[
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+      :root { --ink:#0B1220; --panel:#141E2E; --text:#F8FAFC; --muted:#94A3B8; --ember:#FF6A1A; --crisp:#38BDF8; }
+      .c-bg     { fill: url(#cbg); }
+      .c-title  { fill: var(--text); font-size:28px; font-weight:900; }
+      .c-sub    { fill: var(--muted); font-size:15px; }
+      .c-panel  { fill: var(--panel); stroke: #2A3B55; stroke-width:1.5; }
+      .c-grid   { stroke: #2A3B55; stroke-width:1; opacity:.5; }
+      .c-freeze { fill: var(--crisp); opacity:.1; }
+      .c-freeze-l{ fill: var(--crisp); font-size:12px; font-weight:800; }
+      .c-warm-l { fill: var(--ember); font-size:12px; font-weight:800; }
+      .c-curve  { fill:none; stroke: var(--ember); stroke-width:4; stroke-linecap:round; stroke-linejoin:round; stroke-dasharray:1400; }
+      .c-draw   { animation: c-draw 4s ease-in-out forwards; }
+      @keyframes c-draw { from{ stroke-dashoffset:1400 } to{ stroke-dashoffset:0 } }
+      .c-dot    { fill:#0B1220; stroke: var(--ember); stroke-width:3; }
+      .c-day    { fill: var(--muted); font-size:13px; text-anchor:middle; }
+      .c-peak   { fill: var(--ember); }
+      .c-foot   { fill: var(--panel); stroke: var(--crisp); stroke-width:1.5; }
+      @media (prefers-reduced-motion: reduce){ .c-draw{ animation:none; stroke-dashoffset:0 } }
+]]>
+    </style>
+    <linearGradient id="cbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0B1220"/><stop offset="1" stop-color="#141E2E"/></linearGradient>
+    <linearGradient id="warmBand" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF6A1A" stop-opacity="0.4"/><stop offset="1" stop-color="#FF6A1A" stop-opacity="0"/></linearGradient>
+    <filter id="c-glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect class="c-bg" width="800" height="500"/>
+  <text class="c-title" x="60" y="64" font-family="Inter, system-ui, sans-serif">Why your home gets it</text>
+  <text class="c-sub"   x="60" y="92" font-family="Inter, system-ui, sans-serif">A Chinook swing can flip an attic from freeze to thaw in hours.</text>
+
+  <g>
+    <rect class="c-panel" x="80" y="160" width="640" height="220" rx="12"/>
+    <g class="c-grid"><line x1="208" y1="160" x2="208" y2="380"/><line x1="336" y1="160" x2="336" y2="380"/><line x1="464" y1="160" x2="464" y2="380"/><line x1="592" y1="160" x2="592" y2="380"/></g>
+    <rect class="c-freeze" x="80" y="280" width="640" height="40"/>
+    <text class="c-freeze-l" x="92" y="276" font-family="Inter, system-ui, sans-serif">FREEZING (frost builds up)</text>
+    <rect x="80" y="170" width="640" height="40" fill="url(#warmBand)"/>
+    <text class="c-warm-l" x="92" y="166" font-family="Inter, system-ui, sans-serif">ABOVE 0°C (frost melts)</text>
+  </g>
+
+  <g filter="url(#c-glow)">
+    <path class="c-curve c-draw" d="M104 320 C 144 330, 170 330, 208 322 C 250 312, 290 320, 336 310 C 380 300, 420 200, 464 195 C 500 192, 540 220, 592 280 C 630 320, 670 320, 696 318"/>
+  </g>
+  <g class="c-dot"><circle cx="104" cy="320" r="6"/><circle cx="208" cy="322" r="6"/><circle cx="336" cy="310" r="6"/><circle cx="464" cy="195" r="6"/><circle cx="592" cy="280" r="6"/><circle cx="696" cy="318" r="6"/></g>
+
+  <g class="c-day" font-family="Inter, system-ui, sans-serif">
+    <text x="104" y="404">Mon</text><text x="208" y="404">Tue</text><text x="336" y="404">Wed</text><text x="464" y="404">Thu · Chinook</text><text x="592" y="404">Fri</text><text x="696" y="404">Sat</text>
+  </g>
+
+  <g font-family="Inter, system-ui, sans-serif">
+    <g><rect class="c-peak" x="392" y="120" width="190" height="36" rx="10"/><text x="487" y="143" text-anchor="middle" fill="#FFFFFF" font-size="13" font-weight="800">+15°C in a single day</text></g>
+    <g>
+      <rect class="c-foot" x="60" y="430" width="680" height="50" rx="12"/>
+      <text x="400" y="453" text-anchor="middle" fill="#F8FAFC" font-size="14" font-weight="800">The frost that built up overnight turns into "rain"</text>
+      <text x="400" y="471" text-anchor="middle" fill="#38BDF8" font-size="12" font-weight="500">— and it drips through your ceiling.</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-labelledby="a6t a6d">
+  <title id="a6t">Insulation icon</title>
+  <desc id="a6d">Line icon of layered insulation rolls with an R-value marker indicating correct thermal resistance.</desc>
+  <defs>
+    <style>
+<![CDATA[
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&display=swap');
+      :root { --ink:#0B1220; --panel:#141E2E; --text:#F8FAFC; --ember:#FF6A1A; --crisp:#38BDF8; }
+      .a6-bg     { fill: url(#plate); }
+      .a6-roll   { stroke: var(--text); stroke-width:3; stroke-linejoin:round; }
+      .a6-fill-1 { fill: url(#r1); }
+      .a6-fill-2 { fill: url(#r2); }
+      .a6-fill-3 { fill: url(#r3); }
+      .a6-layer  { stroke: var(--crisp); stroke-width:1.6; opacity:.6; fill:none; }
+      .a6-core   { fill: var(--crisp); stroke: var(--text); stroke-width:2.5; }
+      .a6-badge  { fill: var(--ember); stroke: #FFFFFF; stroke-width:2; }
+      .a6-pulse  { transform-box: fill-box; transform-origin: center; animation: a6-beat 3.4s ease-in-out infinite; }
+      @keyframes a6-beat { 0%,100%{ transform: scale(1) } 50%{ transform: scale(1.08) } }
+      @media (prefers-reduced-motion: reduce){ .a6-pulse{ animation:none } }
+]]>
+    </style>
+    <radialGradient id="plate" cx="0.3" cy="0.25" r="0.95"><stop offset="0" stop-color="#1E2A40"/><stop offset="1" stop-color="#0B1220"/></radialGradient>
+    <linearGradient id="r1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2E6FA0"/><stop offset="1" stop-color="#1E2A40"/></linearGradient>
+    <linearGradient id="r2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3A7FB5"/><stop offset="1" stop-color="#22344E"/></linearGradient>
+    <linearGradient id="r3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4A90C5"/><stop offset="1" stop-color="#26405E"/></linearGradient>
+    <filter id="a6-glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="2.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect class="a6-bg" x="8" y="8" width="184" height="184" rx="38"/>
+  <g filter="url(#a6-glow)">
+    <rect class="a6-roll a6-fill-1" x="40" y="124" width="120" height="28" rx="10"/>
+    <rect class="a6-roll a6-fill-2" x="48" y="90" width="104" height="28" rx="10"/>
+    <rect class="a6-roll a6-fill-3" x="56" y="56" width="88" height="28" rx="10"/>
+  </g>
+  <g class="a6-layer">
+    <path d="M52 138 q7 -6 14 0 q7 6 14 0 q7 -6 14 0 q7 6 14 0 q7 -6 14 0 q7 6 14 0 q7 -6 14 0"/>
+    <path d="M60 104 q6 -6 12 0 q6 6 12 0 q6 -6 12 0 q6 6 12 0 q6 -6 12 0 q6 6 12 0"/>
+    <path d="M68 70 q5 -5 10 0 q5 5 10 0 q5 -5 10 0 q5 5 10 0 q5 -5 10 0"/>
+  </g>
+  <g class="a6-core"><circle cx="44" cy="138" r="6"/><circle cx="52" cy="104" r="6"/><circle cx="60" cy="70" r="6"/></g>
+  <g class="a6-badge a6-pulse">
+    <rect x="132" y="38" width="44" height="26" rx="8"/>
+    <text x="154" y="56" text-anchor="middle" fill="#FFFFFF" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="800">R-50</text>
+  </g>
+</svg>

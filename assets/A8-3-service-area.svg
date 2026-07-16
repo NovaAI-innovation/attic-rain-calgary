@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-labelledby="p3t p3d">
+  <title id="p3t">Where we work</title>
+  <desc id="p3d">Simplified map of Calgary with a soft service-area ring and a handful of labelled neighbourhoods we serve.</desc>
+
+  <defs>
+    <style>
+<![CDATA[
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+      :root { --ink:#0B1220; --panel:#141E2E; --text:#F8FAFC; --muted:#94A3B8; --ember:#FF6A1A; --crisp:#38BDF8; }
+      .m-bg    { fill: url(#mbg); }
+      .m-title { fill: var(--text); font-size:28px; font-weight:900; }
+      .m-sub   { fill: var(--muted); font-size:15px; }
+      .m-grid  { stroke: #1E2A40; stroke-width:1; opacity:.8; }
+      .m-river { stroke: var(--crisp); stroke-width:10; opacity:.35; stroke-linecap:round; fill:none; }
+      .m-fill  { fill: var(--crisp); opacity:.08; }
+      .m-ring  { fill:none; stroke: var(--ember); stroke-width:3; }
+      .m-ring2 { fill:none; stroke: var(--ember); stroke-width:1.5; opacity:.4; stroke-dasharray:3 6; }
+      .m-ndot  { fill: var(--crisp); }
+      .m-nlbl  { fill: var(--text); font-size:13px; font-weight:700; }
+      .m-banner{ fill: var(--panel); stroke: var(--crisp); stroke-width:1.5; }
+      .m-pulse { transform-box: fill-box; transform-origin: center; animation: m-ping 3.2s ease-out infinite; }
+      @keyframes m-ping { 0%{ transform: scale(.85); opacity:.6 } 70%,100%{ transform: scale(1.3); opacity:0 } }
+      @media (prefers-reduced-motion: reduce){ .m-pulse{ animation:none; opacity:0 } }
+]]>
+    </style>
+    <linearGradient id="mbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0B1220"/><stop offset="1" stop-color="#141E2E"/></linearGradient>
+    <filter id="m-core-glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect class="m-bg" width="800" height="500"/>
+  <text class="m-title" x="60" y="64" font-family="Inter, system-ui, sans-serif">Where we work</text>
+  <text class="m-sub"   x="60" y="92" font-family="Inter, system-ui, sans-serif">Calgary-wide. If you're in the ring, we'll come to you.</text>
+
+  <g class="m-grid">
+    <line x1="0" y1="200" x2="800" y2="200"/><line x1="0" y1="280" x2="800" y2="280"/><line x1="0" y1="360" x2="800" y2="360"/>
+    <line x1="220" y1="120" x2="220" y2="460"/><line x1="380" y1="120" x2="380" y2="460"/><line x1="540" y1="120" x2="540" y2="460"/>
+  </g>
+  <path class="m-river" d="M60 320 C 200 280, 300 380, 460 320 S 720 280, 760 340"/>
+
+  <circle class="m-fill"  cx="400" cy="290" r="200"/>
+  <circle class="m-ring"  cx="400" cy="290" r="200"/>
+  <circle class="m-ring2" cx="400" cy="290" r="120"/>
+
+  <g font-family="Inter, system-ui, sans-serif">
+    <g><circle class="m-ndot" cx="240" cy="230" r="6"/><text class="m-nlbl" x="252" y="226">NW · Brentwood / Varsity</text></g>
+    <g><circle class="m-ndot" cx="500" cy="220" r="6"/><text class="m-nlbl" x="512" y="216">NE · Thorncliffe / Huntington</text></g>
+    <g><circle class="m-ndot" cx="280" cy="350" r="6"/><text class="m-nlbl" x="292" y="346">SW · Killarney / Glamorgan</text></g>
+    <g><circle class="m-ndot" cx="520" cy="360" r="6"/><text class="m-nlbl" x="532" y="356">SE · Acadia / Riverbend</text></g>
+  </g>
+
+  <g transform="translate(400 290)">
+    <circle class="m-pulse" r="18" fill="#FF6A1A"/>
+    <g filter="url(#m-core-glow)"><circle fill="#FF6A1A" r="10"/><circle fill="#FFFFFF" r="4"/></g>
+  </g>
+
+  <g><rect class="m-banner" x="60" y="438" width="680" height="44" rx="12"/><text x="400" y="466" text-anchor="middle" fill="#F8FAFC" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="800">Calgary-only. We work here every day, all year.</text></g>
+</svg>

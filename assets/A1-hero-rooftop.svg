@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-labelledby="a1t a1d" preserveAspectRatio="xMidYMid slice">
+  <title id="a1t">Frost-covered Calgary rooftop at dawn</title>
+  <desc id="a1d">Cinematic dark illustration of a frost-covered Calgary rooftop silhouette at dawn, warm ember dawn light melting frost from the shingles. Stopgap vector version of the photo-real hero.</desc>
+
+  <defs>
+    <style>
+<![CDATA[
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+
+      :root {
+        --ink:    #0B1220;   /* deep slate-navy page */
+        --panel:  #141E2E;   /* raised surface */
+        --ink-2:  #1E2A40;   /* mid surface */
+        --text:   #F8FAFC;   /* near-white */
+        --muted:  #94A3B8;   /* slate */
+        --ember:  #FF6A1A;   /* electric Chinook accent */
+        --crisp:  #38BDF8;   /* sharp cyan */
+        --frost:  #BFEAFF;   /* bright frost */
+      }
+
+      .a1-sky      { fill: url(#dawnSky); }
+      .a1-sun-halo { fill: url(#sunGlow); }
+      .a1-sun-core { fill: #FFE3BE; }
+      .a1-mtn-far  { fill: #16233A; opacity: .75; }
+      .a1-mtn-mid  { fill: #0E1A2C; opacity: .9; }
+      .a1-roof-mass{ fill: url(#roofFill); }
+      .a1-eave     { fill: #050A14; }
+      .a1-under    { fill: #070E1B; }
+      .a1-frost-band{ fill: url(#frostShine); opacity: .9; }
+      .a1-crystal  { fill: var(--frost); }
+      .a1-vent     { fill: #050A14; }
+      .a1-chimney  { fill: #050A14; }
+      .a1-chimney-cap{ fill: #0E1A2C; }
+      .a1-steam    { stroke: #BFEAFF; stroke-width: 3; fill: none; opacity: .28; stroke-linecap: round; }
+
+      .a1-pulse   { transform-box: fill-box; transform-origin: center; animation: a1-breath 9s ease-in-out infinite; }
+      .a1-drift   { transform-box: fill-box; transform-origin: center; animation: a1-rise 11s ease-in-out infinite; }
+      .a1-sparkle { transform-box: fill-box; transform-origin: center; animation: a1-twinkle 5s ease-in-out infinite; }
+      @keyframes a1-breath { 0%,100%{ transform: scale(1); opacity:.9 } 50%{ transform: scale(1.06); opacity:1 } }
+      @keyframes a1-rise   { 0%,100%{ transform: translateY(0); opacity:.22 } 50%{ transform: translateY(-12px); opacity:.4 } }
+      @keyframes a1-twinkle{ 0%,100%{ opacity:.55 } 50%{ opacity:1 } }
+      @media (prefers-reduced-motion: reduce) { .a1-pulse,.a1-drift,.a1-sparkle { animation: none; } }
+]]>
+    </style>
+
+    <linearGradient id="dawnSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0"    stop-color="#050A14"/>
+      <stop offset="0.30" stop-color="#0B1220"/>
+      <stop offset="0.55" stop-color="#16233A"/>
+      <stop offset="0.72" stop-color="#5A2A12" stop-opacity="0.85"/>
+      <stop offset="0.86" stop-color="#FF6A1A" stop-opacity="0.65"/>
+      <stop offset="1"    stop-color="#0B1220"/>
+    </linearGradient>
+    <radialGradient id="sunGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0"   stop-color="#FFD9A8" stop-opacity="0.95"/>
+      <stop offset="0.45" stop-color="#FF6A1A" stop-opacity="0.55"/>
+      <stop offset="1"   stop-color="#FF6A1A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="roofFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0E1A2C"/>
+      <stop offset="1" stop-color="#050A14"/>
+    </linearGradient>
+    <linearGradient id="frostShine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0"   stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#BFEAFF" stop-opacity="0.95"/>
+      <stop offset="1"   stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.05 0"/>
+      <feComposite operator="over" in2="SourceGraphic"/>
+    </filter>
+    <filter id="bloom" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="12" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="edgeLight" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feSpecularLighting in="blur" surfaceScale="4" specularConstant="0.9" specularExponent="18" lighting-color="#FF6A1A" result="spec">
+        <feDistantLight azimuth="225" elevation="55"/>
+      </feSpecularLighting>
+      <feComposite in="spec" in2="SourceAlpha" operator="in" result="specOnly"/>
+      <feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="specOnly"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect class="a1-sky" width="1200" height="800"/>
+
+  <g class="a1-pulse">
+    <circle class="a1-sun-halo" cx="900" cy="430" r="320" filter="url(#bloom)"/>
+    <circle class="a1-sun-core" cx="900" cy="430" r="70"/>
+  </g>
+
+  <path class="a1-mtn-far" d="M0 560 L160 470 L320 540 L480 450 L640 530 L820 460 L1000 540 L1200 480 L1200 800 L0 800 Z"/>
+  <path class="a1-mtn-mid" d="M0 620 L200 560 L420 610 L640 540 L860 600 L1080 550 L1200 590 L1200 800 L0 800 Z"/>
+
+  <g filter="url(#edgeLight)">
+    <path class="a1-roof-mass" d="M120 690 L600 360 L1080 690 Z"/>
+    <rect class="a1-eave"  x="110" y="686" width="980" height="14" rx="3"/>
+    <rect class="a1-under" x="170" y="690" width="860" height="110"/>
+  </g>
+
+  <g>
+    <path class="a1-frost-band" d="M250 610 L600 420 L950 610 L930 626 L600 446 L270 626 Z"/>
+    <g class="a1-crystal a1-sparkle">
+      <circle cx="360" cy="572" r="3"/><circle cx="410" cy="548" r="2.5"/><circle cx="470" cy="520" r="3"/>
+      <circle cx="540" cy="488" r="2.5"/><circle cx="640" cy="488" r="3"/><circle cx="720" cy="520" r="2.5"/>
+      <circle cx="790" cy="548" r="3"/><circle cx="840" cy="572" r="2.5"/>
+    </g>
+  </g>
+
+  <g class="a1-vent">
+    <path d="M520 470 l24 0 l-4 14 l-16 0 z"/>
+    <path d="M690 470 l24 0 l-4 14 l-16 0 z"/>
+  </g>
+
+  <rect class="a1-chimney"     x="760" y="398" width="34" height="70"/>
+  <rect class="a1-chimney-cap" x="754" y="392" width="46" height="12" rx="2"/>
+
+  <g class="a1-steam a1-drift">
+    <path d="M420 540 C 410 500, 430 480, 415 440"/>
+    <path d="M780 540 C 790 500, 770 480, 785 440"/>
+  </g>
+
+  <rect width="1200" height="800" filter="url(#grain)" opacity="0.5"/>
+</svg>

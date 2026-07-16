@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400" role="img" aria-labelledby="a7t a7d">
+  <title id="a7t">Roofing team inspecting an attic</title>
+  <desc id="a7d">Cinematic dark illustration of two roofing specialists inspecting an attic interior with clipboards and a flashlight, with roof trusses and insulation visible.</desc>
+
+  <defs>
+    <style>
+<![CDATA[
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+      :root { --ink:#0B1220; --panel:#141E2E; --ink-2:#1E2A40; --text:#F8FAFC; --muted:#94A3B8; --ember:#FF6A1A; --crisp:#38BDF8; }
+      .a7-bg     { fill: url(#sky7); }
+      .a7-floor  { fill: url(#floor7); }
+      .a7-roofin { stroke: #2A3B55; stroke-width:3; fill:#0E1A2C; stroke-linejoin:round; }
+      .a7-truss  { stroke: #1E2A40; stroke-width:2.5; fill:none; }
+      .a7-insul  { fill: #1E2A40; stroke: #2E6FA0; stroke-width:1.5; }
+      .a7-ins-st { stroke: #2E6FA0; stroke-width:1; opacity:.6; }
+      .a7-body   { stroke: #F8FAFC; stroke-width:3; stroke-linejoin:round; stroke-linecap:round; }
+      .a7-hat    { fill: var(--ember); }
+      .a7-head   { fill: #E8B98F; }
+      .a7-shirt1 { fill: #16233A; }
+      .a7-shirt2 { fill: #1E2A40; }
+      .a7-clip   { fill: var(--panel); stroke: var(--crisp); stroke-width:1.5; }
+      .a7-beam   { fill: url(#beam); }
+      .a7-flash  { fill: var(--ember); }
+      .a7-badge  { fill: var(--panel); stroke: var(--ember); stroke-width:1.5; }
+      .a7-lamp   { transform-box: fill-box; transform-origin: center; animation: a7-sweep 6s ease-in-out infinite; }
+      @keyframes a7-sweep { 0%,100%{ opacity:.5 } 50%{ opacity:.85 } }
+      @media (prefers-reduced-motion: reduce){ .a7-lamp{ animation:none } }
+]]>
+    </style>
+
+    <linearGradient id="sky7" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0B1220"/><stop offset="1" stop-color="#0E1A2C"/></linearGradient>
+    <linearGradient id="floor7" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#141E2E"/><stop offset="1" stop-color="#070E1B"/></linearGradient>
+    <linearGradient id="beam" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFE3BE" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#FF6A1A" stop-opacity="0"/>
+    </linearGradient>
+
+    <filter id="a7-soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+    <filter id="a7-lampglow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="7" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect class="a7-bg" width="600" height="400"/>
+  <rect class="a7-floor" x="0" y="300" width="600" height="100"/>
+
+  <g class="a7-roofin"><path d="M0 30 L300 150 L600 30 L600 0 L0 0 Z"/></g>
+  <g class="a7-truss">
+    <path d="M0 30 L600 30"/><path d="M150 30 L150 150"/><path d="M300 30 L300 150"/><path d="M450 30 L450 150"/><path d="M75 90 L525 90"/>
+  </g>
+
+  <rect class="a7-insul" x="0" y="294" width="600" height="14"/>
+  <g class="a7-ins-st">
+    <line x1="60" y1="294" x2="60" y2="308"/><line x1="130" y1="294" x2="130" y2="308"/>
+    <line x1="220" y1="294" x2="220" y2="308"/><line x1="400" y1="294" x2="400" y2="308"/>
+    <line x1="480" y1="294" x2="480" y2="308"/><line x1="560" y1="294" x2="560" y2="308"/>
+  </g>
+
+  <!-- person 1 (left, holding clipboard) -->
+  <g class="a7-body" filter="url(#a7-soft)">
+    <path class="a7-hat" d="M168 196 a26 26 0 0 1 52 0 z"/>
+    <line x1="166" y1="196" x2="222" y2="196"/>
+    <circle class="a7-head" cx="194" cy="188" r="16"/>
+    <path class="a7-shirt1" d="M170 268 v-44 a24 24 0 0 1 48 0 v44 z"/>
+    <path d="M194 232 L210 256" fill="none"/>
+    <rect class="a7-clip" x="202" y="246" width="22" height="28" rx="2"/>
+  </g>
+
+  <!-- flashlight beam (glowing) -->
+  <g class="a7-lamp" filter="url(#a7-lampglow)">
+    <path class="a7-beam" d="M372 168 L440 150 L448 188 Z"/>
+  </g>
+  <!-- person 2 (right, holding flashlight) -->
+  <g class="a7-body" filter="url(#a7-soft)">
+    <path class="a7-hat" d="M378 196 a26 26 0 0 1 52 0 z"/>
+    <line x1="376" y1="196" x2="432" y2="196"/>
+    <circle class="a7-head" cx="404" cy="188" r="16"/>
+    <path class="a7-shirt2" d="M380 268 v-44 a24 24 0 0 1 48 0 v44 z"/>
+    <path d="M388 232 L368 214" fill="none"/>
+    <rect class="a7-flash" x="354" y="206" width="16" height="12" rx="3"/>
+  </g>
+
+  <!-- badge: 15+ years -->
+  <g filter="url(#a7-soft)">
+    <rect class="a7-badge" x="470" y="250" width="110" height="40" rx="10"/>
+    <text x="525" y="276" text-anchor="middle" fill="#FF6A1A" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="800">15+ years</text>
+  </g>
+</svg>

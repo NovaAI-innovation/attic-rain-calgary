@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-labelledby="a4t a4d">
+  <title id="a4t">Ventilation icon</title>
+  <desc id="a4d">Line icon of a roof vent with airflow arrows showing balanced ventilation.</desc>
+  <defs>
+    <style>
+<![CDATA[
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&display=swap');
+      :root { --ink:#0B1220; --panel:#141E2E; --text:#F8FAFC; --ember:#FF6A1A; --crisp:#38BDF8; }
+      .a4-bg     { fill: url(#plate); }
+      .a4-roof   { fill: none; stroke: var(--text); stroke-width:4; stroke-linecap:round; stroke-linejoin:round; }
+      .a4-vent   { stroke: var(--text); stroke-width:3; fill: var(--panel); stroke-linejoin:round; }
+      .a4-flow   { fill:none; stroke: var(--ember); stroke-width:3.5; stroke-linecap:round; }
+      .a4-dot    { fill: var(--crisp); }
+      .a4-flow-l { animation: a4-pulse 4s ease-in-out infinite; }
+      .a4-flow-r { animation: a4-pulse 4s ease-in-out infinite .6s; }
+      @keyframes a4-pulse { 0%,100%{ opacity:.35 } 50%{ opacity:1 } }
+      @media (prefers-reduced-motion: reduce){ .a4-flow-l,.a4-flow-r{ animation:none } }
+]]>
+    </style>
+    <radialGradient id="plate" cx="0.3" cy="0.25" r="0.95">
+      <stop offset="0" stop-color="#1E2A40"/><stop offset="1" stop-color="#0B1220"/>
+    </radialGradient>
+    <filter id="a4-glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="2.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="fa" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#FF6A1A"/></marker>
+  </defs>
+
+  <rect class="a4-bg" x="8" y="8" width="184" height="184" rx="38"/>
+  <g filter="url(#a4-glow)">
+    <path class="a4-roof" d="M30 150 L100 95 L170 150"/>
+    <g class="a4-vent">
+      <path d="M78 104 h44 l-6 22 h-32 z"/>
+      <line x1="84" y1="112" x2="120" y2="112"/>
+      <line x1="86" y1="119" x2="118" y2="119"/>
+    </g>
+    <g class="a4-flow a4-flow-l" marker-end="url(#fa)"><path d="M40 150 C 40 130, 45 118, 60 110"/></g>
+    <g class="a4-flow a4-flow-r" marker-end="url(#fa)"><path d="M160 150 C 160 130, 155 118, 140 110"/></g>
+    <g class="a4-dot"><circle cx="50" cy="128" r="3"/><circle cx="150" cy="128" r="3"/></g>
+  </g>
+</svg>

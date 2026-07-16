@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-labelledby="a2t a2d">
+  <title id="a2t">How attic rain forms</title>
+  <desc id="a2d">Cross-section diagram of a house showing warm air rising into a freezing attic, frost forming on the underside of the roof, and meltwater dripping onto insulation.</desc>
+
+  <defs>
+    <style>
+<![CDATA[
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+      :root {
+        --ink:#0B1220; --panel:#141E2E; --ink-2:#1E2A40; --text:#F8FAFC; --muted:#94A3B8;
+        --ember:#FF6A1A; --crisp:#38BDF8; --frost:#BFEAFF;
+      }
+      .a2-backdrop { fill: url(#sky); }
+      .a2-ground   { fill: #0E1A2C; }
+      .a2-house    { fill: var(--panel); stroke: #2A3B55; stroke-width: 2; }
+      .a2-warm     { fill: url(#warmGlow); opacity: .85; }
+      .a2-roof     { fill: url(#roof); stroke: var(--ember); stroke-width: 2; stroke-linejoin: round; }
+      .a2-floor    { stroke: #2A3B55; stroke-width: 2; }
+      .a2-frost    { stroke: var(--frost); stroke-width: 10; stroke-linecap: round; fill: none; opacity: .9; }
+      .a2-crystal  { fill: var(--frost); stroke: var(--crisp); stroke-width: 1.5; }
+      .a2-insul    { fill: #2A3B55; stroke: #3A4D6B; stroke-width: 1.5; }
+      .a2-insul-st { stroke: #3A4D6B; stroke-width: 1; opacity: .8; }
+      .a2-warm-air { fill: none; stroke: var(--ember); stroke-width: 2.5; stroke-dasharray: 4 5; stroke-linecap: round; }
+      .a2-drop     { fill: var(--crisp); }
+      .a2-drip     { fill: none; stroke: var(--crisp); stroke-width: 2; opacity: .6; }
+      .a2-lbl-warm-bg { fill: var(--panel); stroke: var(--ember); stroke-width: 1.5; }
+      .a2-lbl-frost-bg{ fill: var(--panel); stroke: var(--crisp); stroke-width: 1.5; }
+      .a2-lbl-dark-bg { fill: var(--ember); }
+      .a2-tick     { stroke: #2A3B55; stroke-width: 1; opacity: .5; stroke-dasharray: 2 4; }
+      .a2-rise  { transform-box: fill-box; transform-origin: center; animation: a2-up 6s ease-in-out infinite; }
+      .a2-drop-anim { transform-box: fill-box; transform-origin: center; animation: a2-fall 4.5s ease-in infinite; }
+      @keyframes a2-up   { 0%,100%{ transform: translateY(0); opacity:.85 } 50%{ transform: translateY(-14px); opacity:1 } }
+      @keyframes a2-fall { 0%{ transform: translateY(-26px); opacity:0 } 18%{ opacity:1 } 100%{ transform: translateY(0); opacity:.7 } }
+      @media (prefers-reduced-motion: reduce){ .a2-rise,.a2-drop-anim{ animation:none } }
+]]>
+    </style>
+
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0B1220"/><stop offset="1" stop-color="#141E2E"/></linearGradient>
+    <linearGradient id="roof" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1E2A40"/><stop offset="1" stop-color="#0B1220"/></linearGradient>
+    <radialGradient id="warmGlow" cx="0.5" cy="0.9" r="0.8"><stop offset="0" stop-color="#FF6A1A" stop-opacity="0.35"/><stop offset="1" stop-color="#FF6A1A" stop-opacity="0"/></radialGradient>
+
+    <filter id="a2-glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arrowO" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#FF6A1A"/></marker>
+  </defs>
+
+  <rect class="a2-backdrop" width="800" height="500"/>
+  <rect class="a2-ground" x="0" y="430" width="800" height="70"/>
+
+  <g filter="url(#a2-glow)">
+    <rect class="a2-house" x="180" y="300" width="440" height="130" rx="6"/>
+    <rect class="a2-warm"  x="186" y="306" width="428" height="118" rx="4"/>
+
+    <path class="a2-roof"  d="M150 300 L400 150 L650 300 Z"/>
+    <line class="a2-floor" x1="180" y1="300" x2="620" y2="300"/>
+
+    <path class="a2-frost" d="M210 292 L400 188 L590 292"/>
+    <g class="a2-crystal">
+      <path d="M250 270 l6 -12 l6 12 z"/><path d="M300 240 l6 -12 l6 12 z"/>
+      <path d="M360 210 l6 -12 l6 12 z"/><path d="M430 210 l6 -12 l6 12 z"/>
+      <path d="M490 240 l6 -12 l6 12 z"/><path d="M545 270 l6 -12 l6 12 z"/>
+    </g>
+
+    <rect class="a2-insul" x="190" y="293" width="420" height="14" rx="4"/>
+    <g class="a2-insul-st">
+      <line x1="240" y1="293" x2="240" y2="307"/><line x1="300" y1="293" x2="300" y2="307"/>
+      <line x1="360" y1="293" x2="360" y2="307"/><line x1="430" y1="293" x2="430" y2="307"/>
+      <line x1="500" y1="293" x2="500" y2="307"/><line x1="560" y1="293" x2="560" y2="307"/>
+    </g>
+  </g>
+
+  <g class="a2-warm-air a2-rise" marker-end="url(#arrowO)">
+    <path d="M300 410 C 300 380, 300 360, 300 330"/>
+    <path d="M400 410 C 400 380, 400 350, 400 320"/>
+    <path d="M500 410 C 500 380, 500 360, 500 330"/>
+  </g>
+
+  <g class="a2-drop a2-drop-anim">
+    <circle cx="350" cy="250" r="5"/><circle cx="358" cy="275" r="4"/>
+    <circle cx="460" cy="255" r="5"/><circle cx="468" cy="278" r="4"/>
+  </g>
+  <path class="a2-drip" d="M350 256 L350 288"/>
+  <path class="a2-drip" d="M460 261 L460 288"/>
+
+  <g font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="700">
+    <g>
+      <rect class="a2-lbl-warm-bg" x="40" y="360" width="120" height="44" rx="8"/>
+      <text x="100" y="379" text-anchor="middle" fill="#FF6A1A">Warm air</text>
+      <text x="100" y="396" text-anchor="middle" fill="#94A3B8" font-weight="500" font-size="12">rises into attic</text>
+    </g>
+    <g>
+      <rect class="a2-lbl-frost-bg" x="640" y="190" width="120" height="44" rx="8"/>
+      <text x="700" y="209" text-anchor="middle" fill="#38BDF8">Frost forms</text>
+      <text x="700" y="226" text-anchor="middle" fill="#94A3B8" font-weight="500" font-size="12">on cold roof</text>
+    </g>
+    <g>
+      <rect class="a2-lbl-dark-bg" x="640" y="330" width="130" height="44" rx="8"/>
+      <text x="705" y="349" text-anchor="middle" fill="#FFFFFF">Meltwater drips</text>
+      <text x="705" y="366" text-anchor="middle" fill="#0B1220" font-weight="700" font-size="12">onto insulation</text>
+    </g>
+  </g>
+
+  <g class="a2-tick">
+    <line x1="160" y1="382" x2="285" y2="392"/>
+    <line x1="620" y1="210" x2="595" y2="215"/>
+    <line x1="640" y1="352" x2="475" y2="290"/>
+  </g>
+</svg>
