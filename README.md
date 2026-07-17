@@ -155,10 +155,30 @@ Any static host works. The form posts to Web3Forms from the browser, so
 2. Build command: *(none)*. Publish directory: `.` (repo root).
 3. Done. Set a custom domain in the host dashboard if you have one.
 
-### GitHub Pages
+### GitHub Pages (with secret injection)
 
-1. Push to a repo, enable Pages in Settings → Pages.
-2. Source: `main` branch, `/` (root).
+This repo ships a deploy workflow at `.github/workflows/deploy.yml` that
+injects the Web3Forms key at build time, so the gitignored `config.js`
+never has to be committed.
+
+**One-time setup:**
+
+1. Push the repo to GitHub.
+2. Add the key as an **environment secret** named
+   `WEB3FORMS_ACCESS_KEY` under **Settings → Environments → github-pages**
+   (create the `github-pages` environment if it doesn't exist). A
+   repository-scoped secret will *not* work — it must live on the
+   `github-pages` environment because that's what the workflow declares.
+3. In **Settings → Pages → Build and deployment**, set Source to
+   **GitHub Actions** (not "Deploy from a branch"). Without this, GitHub
+   serves the raw branch and the workflow never runs.
+
+**On every push to `main`:** the workflow reads the secret, writes
+`config.js` in the runner, and deploys. The key stays out of git
+history; only the built artifact served by Pages contains it.
+
+> Local dev still uses your gitignored `config.js` — the workflow only
+> runs in CI.
 
 ### Suggested cache headers
 
