@@ -1,7 +1,7 @@
 {
   "name": "plan",
   "version": "1.0.0",
-  "description": "A single static landing page for a Calgary attic-rain specialist company. Plain HTML + one CSS file + a small inline script. No framework, no build step, no backend — drop the folder on any static host and it works.",
+  "description": "A single static landing page for Cochrane Insulation — a Cochrane & Calgary insulation company specializing in attic-rain prevention. Plain HTML + one CSS file + a small inline script. No framework, no build step, no backend — drop the folder on any static host and it works.",
   "main": "config.example.js",
   "directories": {
     "test": "tests"
@@ -11,16 +11,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NovaAI-innovation/attic-rain-calgary.git"
+    "url": "git+https://github.com/NovaAI-innovation/cochrane-insulation.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/NovaAI-innovation/attic-rain-calgary/issues"
+    "url": "https://github.com/NovaAI-innovation/cochrane-insulation/issues"
   },
-  "homepage": "https://github.com/NovaAI-innovation/attic-rain-calgary#readme",
+  "homepage": "https://github.com/NovaAI-innovation/cochrane-insulation#readme",
   "devDependencies": {
     "@playwright/test": "^1.61.1",
     "playwright": "^1.61.1"

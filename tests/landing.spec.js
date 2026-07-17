@@ -43,7 +43,7 @@ test.describe("Page structure & assets", () => {
 
   test("title and meta description are present and correct", async ({ page }) => {
     await page.goto(BASE);
-    await expect(page).toHaveTitle(/Attic Rain.*Calgary/i);
+    await expect(page).toHaveTitle(/Cochrane Insulation/i);
     const desc = await page.getAttribute('meta[name="description"]', "content");
     expect(desc).toBeTruthy();
     expect(desc.length).toBeGreaterThan(50);
@@ -85,7 +85,7 @@ test.describe("Page structure & assets", () => {
       description: `og:image extension is .${imgExt} (social platforms prefer JPG/PNG 1200x630)`,
     });
     const canonical = await page.getAttribute('link[rel="canonical"]', "href");
-    expect(canonical).toContain("atticraincalgary.ca");
+    expect(canonical).toContain("cochraneinsulation.ca");
   });
 });
 

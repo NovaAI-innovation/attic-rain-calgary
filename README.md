@@ -1,6 +1,6 @@
-# Attic Rain Specialists · Calgary
+# Cochrane Insulation · Cochrane &amp; Calgary
 
-A single static landing page for a Calgary attic-rain specialist company.
+A single static landing page for Cochrane Insulation, a Cochrane &amp; Calgary insulation company.
 Plain HTML + one CSS file + a small inline script. No framework, no build
 step, no backend — drop the folder on any static host and it works.
 
@@ -39,8 +39,8 @@ server is recommended (see below) so the form's `fetch` and the
 `config.js` script load correctly.
 
 ```bash
-git clone <repo-url> attic-rain
-cd attic-rain
+git clone <repo-url> cochrane-insulation
+cd cochrane-insulation
 cp config.example.js config.js      # then paste your Web3Forms key
 ```
 
@@ -116,7 +116,7 @@ instead of failing silently.
 | S2 | The Problem | `#problem` | What attic rain is (and isn't) |
 | S3 | Why Calgary | `#why-calgary` | The Chinook temperature swing |
 | S4 | The Solution | `#solution` | Three prevention steps |
-| S5 | The Company | `#company` | 15+ years, Calgary focus, credentials |
+| S5 | The Company | `#company` | 15+ years, Cochrane &amp; Calgary focus, credentials |
 | S6 | What to Expect | `#walkthrough` | 6-slide homeowner walkthrough |
 | S7 | Contact | `#contact` | The form (posts to Web3Forms) |
 | S8 | Footer | `#footer` | Service area, license, copyright |
@@ -185,7 +185,7 @@ live**:
 - [ ] **License number** — currently `[LICENSE #]` in the footer.
 - [ ] **Web3Forms key** — paste into `config.js` (see Configuration).
 - [ ] **Domain** — canonical URL and OG tags assume
-      `https://atticraincalgary.ca/`. Update `<link rel="canonical">` and
+      `https://cochraneinsulation.ca/`. Update `<link rel="canonical">` and
       the `og:url` / `og:image` / `twitter:image` tags if different.
 - [ ] **Hero photo** — a stopgap SVG exists. Drop a real
       `A1-hero-rooftop.jpg` (1600×1000, ≤250 KB) into `assets/` for the

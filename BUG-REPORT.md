@@ -1,4 +1,4 @@
-# QA Report — Attic Rain landing page
+# QA Report — Cochrane Insulation landing page
 
 Tested with Playwright 1.61 (Chromium) against `index.html` served via a local
 static server. Suite: `tests/landing.spec.js` (38 tests). 19 screenshots in

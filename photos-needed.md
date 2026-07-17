@@ -41,7 +41,7 @@ ceiling stains should look at this and think "they know my climate."
 | **Max file size** | ≤ 200 KB |
 | **Loads** | Lazy — below the fold, size matters less than the hero |
 
-**What it should show:** Two attic-rain specialists at work inside an attic.
+**What it should show:** Two Cochrane Insulation specialists at work inside an attic.
 One shining a flashlight up at the underside of the roof deck (where frost
 forms); the other taking notes on a clipboard. Real tools, real attic
 environment — exposed joists, insulation visible, a headlamp if you have one.
