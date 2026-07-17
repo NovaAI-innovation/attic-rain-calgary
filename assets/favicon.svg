@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Cochrane Insulation">
+  <title>Cochrane Insulation</title>
+  <!-- App-icon favicon: dark tile + bold two-element mark (droplet dropped for 16px legibility) -->
+  <rect width="64" height="64" rx="14" fill="#080D17"/>
+  <path d="M32 14 L52 40 L12 40 Z" fill="#F8FAFC"/>
+  <rect x="12" y="40" width="40" height="8" rx="3" fill="#FF6A1A"/>
+</svg>

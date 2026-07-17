@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Cochrane Insulation">
+  <title>Cochrane Insulation</title>
+  <!-- The Peak: roof gable outline (the protected attic) -->
+  <path d="M32 6 L59 38 L5 38 Z" fill="none" stroke="#F8FAFC" stroke-width="3.5" stroke-linejoin="round"/>
+  <!-- The Shield: insulation barrier (the brand accent = protection) -->
+  <rect x="5" y="38" width="54" height="10" rx="3" fill="#FF6A1A"/>
+  <!-- The stopped droplet: attic moisture, now contained -->
+  <path d="M32 26 C 36 32, 37.2 34, 37.2 35.6 C 37.2 37.4, 35 38.4, 32 38.4 C 29 38.4, 26.8 37.4, 26.8 35.6 C 26.8 34, 28 32, 32 26 Z" fill="#38BDF8"/>
+</svg>

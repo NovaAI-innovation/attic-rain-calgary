@@ -110,11 +110,9 @@ section { padding: clamp(64px, 10vw, 128px) 0; position: relative; }
 }
 .site-nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
 .brand { display: flex; align-items: center; gap: 10px; font-weight: 900; font-size: 1.0625rem; color: var(--text); letter-spacing: -0.02em; }
-.brand__mark {
-  width: 28px; height: 28px; border-radius: 7px; flex: none;
-  background: var(--ember);      /* flat solid square, no radial glow */
-  border: 1px solid #FF8A44;
-}
+/* Shielded Peak logo: roof gable (inherit) + ember insulation bar + cyan droplet.
+   The gable stroke uses currentColor so it reads white in nav/footer. */
+.brand__mark { width: 28px; height: 28px; flex: none; color: var(--text); }
 .nav-links { display: flex; align-items: center; gap: var(--s-24); }
 .nav-links a { color: var(--muted); font-weight: 600; font-size: 0.94rem; }
 .nav-links a:hover { color: var(--text); text-decoration: none; }
