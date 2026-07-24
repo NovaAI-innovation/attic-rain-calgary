@@ -55,7 +55,7 @@
 
 /* ---------- reset-ish ---------- */
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 body {
   margin: 0;
   font-family: var(--font-body);
@@ -174,6 +174,7 @@ section { padding: clamp(64px, 10vw, 128px) 0; position: relative; }
 .arrow:hover { border-color: var(--line-strong); background: var(--tier-4); }
 
 /* ---------- contact ---------- */
+#contact-form { scroll-margin-top: 80px; }
 .contact-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(24px,5vw,var(--s-64)); align-items: start; }
 .contact-info .phone-line { font-size: 1.5rem; font-weight: 800; color: var(--text); margin-bottom: var(--s-8); }
 .contact-info .phone-line a { color: var(--ember); }
@@ -204,8 +205,31 @@ form input:focus, form textarea:focus { outline: none; border-color: var(--ember
 .site-footer a:hover { color: var(--text); }
 
 /* ---------- reveal-on-scroll ---------- */
-.reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
-.reveal.in { opacity: 1; transform: none; }
+/* Default: visible. Only hide when JS is active (progressive enhancement). */
+.reveal { opacity: 1; transform: none; }
+.js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+.js .reveal.in { opacity: 1; transform: none; }
+
+/* ---------- projects gallery ---------- */
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: var(--s-24); }
+.project-slot { aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; padding: 0; overflow: hidden; }
+.project-placeholder { text-align: center; color: var(--muted); font-size: var(--fs-sm); font-weight: 600; }
+.project-placeholder img { margin: 0 auto var(--s-8); }
+.project-placeholder p { margin: 0; }
+.project-slot img.project-photo { width: 100%; height: 100%; object-fit: cover; }
+
+/* ---------- contact form additions ---------- */
+.contact-info .contact-tagline { font-size: 1.5rem; font-weight: 800; color: var(--text); margin-bottom: var(--s-8); }
+form input[type="file"] {
+  padding: 10px 14px; background: var(--tier-1); border: 1px dashed var(--line-strong);
+  border-radius: 10px; color: var(--muted); font-size: var(--fs-sm); cursor: pointer;
+}
+form input[type="file"]::file-selector-button {
+  background: var(--tier-3); border: 1px solid var(--line); color: var(--text);
+  padding: 8px 14px; border-radius: 8px; font: 700 0.85rem var(--font-body); cursor: pointer; margin-right: 10px;
+}
+form input[type="file"]::file-selector-button:hover { background: var(--tier-4); }
+.field-hint { color: var(--muted); font-size: var(--fs-sm); margin-top: 6px; }
 
 /* ===================================================================== */
 /* responsive                                                             */
@@ -213,6 +237,7 @@ form input:focus, form textarea:focus { outline: none; border-color: var(--ember
 @media (max-width: 900px) {
   .hero-grid, .two-col, .contact-grid { grid-template-columns: 1fr; }
   .solution-grid { grid-template-columns: 1fr; }
+  .projects-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 720px) {
   .nav-links { display: none; }
@@ -231,5 +256,5 @@ form input:focus, form textarea:focus { outline: none; border-color: var(--ember
 
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
-  .reveal { opacity: 1; transform: none; }
+  .reveal, .js .reveal { opacity: 1; transform: none; }
 }

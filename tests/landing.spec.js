@@ -78,7 +78,7 @@ test.describe("Page structure & assets", () => {
     for (const [k, v] of Object.entries(og)) {
       expect(v, `og:${k} missing`).toBeTruthy();
     }
-    // og:image is SVG in the HTML — flagged as a social-preview conversion bug
+    // og:image is now JPG (was SVG — social platforms prefer JPG/PNG 1200x630)
     const imgExt = og.image.split("?")[0].split(".").pop();
     test.info().annotations.push({
       type: "note",
@@ -106,7 +106,7 @@ test.describe("Navigation", () => {
 
   test("primary CTA scrolls to the contact form", async ({ page }) => {
     await page.goto(BASE, { waitUntil: "networkidle" });
-    await page.locator('a.btn:has-text("Free Assessment")').first().click();
+    await page.locator('a.btn:has-text("Send Us Your Request")').first().click();
     await page.waitForTimeout(900);
     // The contact form should be scrolled into the viewport.
     const geo = await page.locator("#contact-form").evaluate((el) => {
@@ -153,7 +153,7 @@ test.describe("Mobile nav (≤720px)", () => {
     await expect(page.locator("#nav-links")).toBeVisible();
     expect(await toggle.getAttribute("aria-expanded")).toBe("true");
     // tapping any link closes the menu
-    await page.locator('#nav-links a[href="#solution"]').click();
+    await page.locator('#nav-links a[href="#services"]').click();
     await page.waitForTimeout(400);
     await expect(page.locator("#nav-links")).not.toBeVisible();
     expect(await toggle.getAttribute("aria-expanded")).toBe("false");
@@ -225,10 +225,10 @@ test.describe("Contact form validation", () => {
 
   test("respect maxlength on the message field", async ({ page }) => {
     const max = await page.getAttribute("#message", "maxlength");
-    expect(Number(max)).toBe(1000);
+    expect(Number(max)).toBe(2000);
     await page.fill("#message", "x".repeat(1001));
     const val = await page.inputValue("#message");
-    expect(val.length).toBeLessThanOrEqual(1000);
+    expect(val.length).toBeLessThanOrEqual(2000);
   });
 
   test("tab order through the form is logical (name → email → message)", async ({ page }) => {
@@ -269,7 +269,7 @@ test.describe("Contact form submission (network)", () => {
     await expect(page.locator("#submit-btn")).toBeDisabled();
 
     // …then the success confirmation
-    await expect(page.locator("#form-status")).toContainText(/Message sent/i);
+    await expect(page.locator("#form-status")).toContainText(/Request sent/i);
 
     // payload was correct
     expect(requestBody.access_key).toBeTruthy();
@@ -292,7 +292,7 @@ test.describe("Contact form submission (network)", () => {
     await page.locator("#submit-btn").click();
     await expect(page.locator("#form-status")).toContainText(/Something went wrong/i);
     await expect(page.locator("#submit-btn")).toBeEnabled();
-    await expect(page.locator("#submit-btn")).toHaveText(/Send Message/);
+    await expect(page.locator("#submit-btn")).toHaveText(/Send Request/);
     // the user's typed text must survive a failure so they don't retype it
     await expect(page.locator("#message")).toHaveValue("Help please");
   });
@@ -459,12 +459,14 @@ test.describe("Accessibility", () => {
     expect(ratios.muted).toBeTruthy();
   });
 
-  test("phone number uses tel: and is clickable", async ({ page }) => {
+  test("no phone numbers or tel: links exist on the page", async ({ page }) => {
     await page.goto(BASE);
-    const tel = page.locator('a[href^="tel:"]').first();
-    await expect(tel).toBeVisible();
-    const href = await tel.getAttribute("href");
-    expect(href).toMatch(/^tel:\+\d+$/);
+    // All phone references should be removed — the site uses email-only intake
+    const telLinks = await page.locator('a[href^="tel:"]').count();
+    expect(telLinks, "tel: links should not exist").toBe(0);
+    const body = await page.locator("body").innerText();
+    const hasPhone = /\(\d{3}\)\s*\d{3}[-.]?\d{4}|\d{3}[-.]\d{3}[-.]\d{4}/.test(body);
+    expect(hasPhone, "page should not contain any phone number").toBe(false);
   });
 });
 
@@ -506,9 +508,8 @@ test.describe("Without JavaScript", () => {
   test("the contact form is still submittable & all content is visible", async ({ page }) => {
     await page.goto(BASE);
     await page.waitForTimeout(500);
-    // .reveal starts at opacity:0. With JS disabled the IntersectionObserver
-    // never adds .in — so the ENTIRE hero (and 20 other reveal blocks, incl.
-    // the contact form's surroundings) stays invisible. Real, confirmed bug.
+    // With progressive enhancement, .reveal defaults to visible (opacity:1)
+    // and only hides when JS adds the .js class. With JS disabled, all content stays visible.
     const heroOpacity = await page.locator("h1").evaluate((el) => {
       const el2 = el.closest(".reveal") || el;
       return getComputedStyle(el2).opacity;
@@ -516,17 +517,7 @@ test.describe("Without JavaScript", () => {
     const invisibleCount = await page.$$eval(".reveal", (els) =>
       els.filter((e) => getComputedStyle(e).opacity === "0").length
     );
-    test.info().annotations.push({
-      type: "no-js",
-      description: `h1 opacity=${heroOpacity}; ${invisibleCount} of 21 .reveal blocks invisible with JS off`,
-    });
-    // The <form> also has no action= attribute, so even if it were visible it
-    // cannot submit anywhere without the JS handler.
-    const action = await page.locator("#contact-form").getAttribute("action");
-    test.info().annotations.push({
-      type: "no-js",
-      description: `form action = ${JSON.stringify(action)} — no-JS users cannot submit at all`,
-    });
+    expect(invisibleCount, "reveal elements should not be hidden without JS").toBe(0);
     expect(parseFloat(heroOpacity), "hero text invisible with JS disabled").toBeGreaterThan(0.5);
   });
 });
